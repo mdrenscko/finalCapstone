@@ -5,11 +5,9 @@ Natural Language Processing Application
 
 A Python program performs sentiment analysis on a dataset of product reviews from Amazon.
 
-The sentiment analysis model is implemented using spaCy: the
-en_core_web_sm spaCy model enables natural language processing
-tasks. This model will help you analyse and classify the sentiment of the product reviews.
-## Table of Contents
+The sentiment analysis model is implemented using spaCy: the en_core_web_sm spaCy model enables natural language processing tasks. This model will help you analyse and classify the sentiment of the product reviews.
 
+## Table of Contents
 
 1. Download a dataset of product reviews: Consumer Reviews of Amazon Products (https://www.kaggle.com/datasets/datafiniti/consumer-reviews-of-amazon-products) You can save it as a CSV file, naming it:amazon_product_reviews.csv.
 2. Locate the Python script, named: sentiment_analysis.py for sentiment analysis. Within the script, you will perform the following tasks using the spaCy library:
@@ -100,8 +98,6 @@ Start the server
 ```bash
   npm run start
 ```
-
-
 ## Usage/Examples
 
 The function that was created for sentiment analysis takes a product review as input and predicts its sentiment based on a polarity score:
@@ -116,7 +112,7 @@ for item in data:
     else:
         sentiment = 'neutral'
 
-
+![image](https://github.com/mdrenscko/finalCapstone/assets/37707260/8f0fb2db-6aea-40a9-93fc-f5a57c00c4e7)
 
 #The model can be tested on sample product reviews. Test the sentiment analysis function on a few sample product reviews to verify its accuracy in predicting sentiment.
 
@@ -124,20 +120,19 @@ for item in data:
 
 #For example:
 
-
 test1 = data[2]
 print(test1)
 print(analyze_polarity(data[2]))
 print(f"The sentiment prediction is: {sentiment}")
 
-
+![image](https://github.com/mdrenscko/finalCapstone/assets/37707260/73e97d40-bb94-48f5-a443-fdfa3ccb4804)
 
 test2 = data[10]
 print(test2)
 print(analyze_polarity(data[10]))
 print(f"The sentiment prediction is: {sentiment}")
 
-
+![image](https://github.com/mdrenscko/finalCapstone/assets/37707260/a8a8fd29-9138-4f65-9e8b-5dbb3ebd5e65)
 ## Authors
 
 - [Mihaela Drenscko](https://www.github.com/mdrenscko)
@@ -196,12 +191,21 @@ Positive percentage: 82.98%
 Negative percentage: 7.26%
 Neutral percentage: 9.76%
 It can be concluded that generally, consumers have a good feeling about Amazon products: 82.98% of sentiments are positive, 9.76 are neutral, and only 7.26% are negative.
-Testing the model prediction for two values gives the following analysis of sentiment for two data points:
+Testing the model prediction for two values gives the following analysis of sentiment for two data points (when I run the script with a reduced size reviews file)
 data[2] = well duracell price happy
 polarity = 0.8, therefore the sentiment predicted is negative
 data[10] = find amazon basics batteries equal superior name brand ones cant believe didnt start buying sooner packages large price great
 polarity = 0.43, therefore the sentiment is negative.
 
-4. Insights into the model's strengths and limitations.
+But when I run the script with the original review file, I get diffrent results:
+well duracell price happy
+0.8
+The sentiment prediction is: positive
+
+find amazon basics batteries equal superior name brand ones cant believe didnt start buying sooner packages large price great
+0.4285714285714286
+The sentiment prediction is: positive
+
+5. Insights into the model's strengths and limitations.
 The model gives a numerical measurement of the polarity and sentiments related to the consumers who posted reviews for the products they bought or viewed on Amazon. It is a good calculator of the polarity of the sentences in product reviews and in calculating consumer sentiment based on positive and negative values of polarity scores, where a polarity greater than 0 shows a positive sentiment, less than 0 – a negative sentiment and a polarity score neither greater than 0 nor less than 0 shows a neutral sentiment.
-From the testing of the model, it can be deduced that the sentiment analysis is not quite accurate. A reading of data[1] shows positive–like words, such as “well” and “happy”, yet the model gave it 0.8 negative qualificatives. A reading of data[10] reveals that the consumer regrets not having bought the product sooner because Amazon batteries are equal to those of a superior brand name. So, the model is not infallible, it has its limitations and cannot predict with high precision the consumer sentiment inferred from product review.
+From the testing of the model, it can be deduced that the sentiment analysis is not quite accurate. A reading of data[1] shows positive–like words, such as “well” and “happy”, yet the model gave it 0.8 negative qualificatives. A reading of data[10] reveals that the consumer regrets not having bought the product sooner because Amazon batteries are equal to those of a superior brand name. So, the model is not infallible, it has its limitations and cannot predict with high precision the consumer sentiment inferred from product review. Besides this, when ruuning the script using the original file, the model expresses a positive sentiment for a polarity of 0.8 and 0.4, respectively. This is in opposition to the results of running the progrem using a reduled file size, when, for the same polarity of the same reviews, a negative sentiment is displayed.
